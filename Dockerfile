@@ -7,12 +7,17 @@ RUN apt-get update && apt-get install -y --install-recommends \
 x11proto-core-dev make cmake libx11-dev imagemagick gcc g++ \
 exiv2 libimage-exiftool-perl libgeo-proj4-perl \ 
 mesa-common-dev libgl1-mesa-dev libglapi-mesa libglu1-mesa \
-qt5-default doxygen opencl-headers
+qt5-default doxygen opencl-headers git
 
 #Download setup.sh and run it to install MicMac
 
 #get micmac
 RUN git clone https://github.com/micmacIGN/micmac.git micmac
+
+#folders etc
+RUN cd micmac
+RUN mkdir build
+RUN cd build
 
 #make micmac without gpu
 RUN cmake -DWITH_QT5=1 -DBUILD_POISSON=1 -DBUILD_RNX2RTKP=1 -DWITH_OPENCL=ON -DWITH_OPEN_MP=ON -DWITH_ETALONPOLY=ON -DWITH_DOXYGEN=ON  ..
