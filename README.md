@@ -4,8 +4,7 @@ Micmac is a photogrammetry software developped by IGN (French National Geographi
 
 Official website : http://logiciels.ign.fr/?Micmac
 
-Mercurial repository : https://geoportail.forge.ign.fr/hg/culture3d/
-
+Github repository : https://github.com/micmacIGN/micmac
 
 
 **What is docker ?**
@@ -16,7 +15,7 @@ Docker is an ability to run virtual machine easyly. You could build a container 
 
 **Why a docker container for Micmac ?**
 
-I use Archlinux and building is a bit complicated. There is a user repository named AUR (Archlinux User Repository) with micmac but the build failed. Like many aur package's I tried to debug it but don't know if in fact in the future I could use micmac or not (depending on the results I could obtain with Micmac) ! That's why I created this docker container
+Micmac is straight forward enough to install, but for ease of use there was no harm!
 
 
 
@@ -24,11 +23,11 @@ I use Archlinux and building is a bit complicated. There is a user repository na
 
 First you have to build the container by typing in a terminal :
 
-`docker build -t giscan/micmac git://github.com/giscan/micmac-docker`
+`docker build -t cir10/micmac git://github.com/Ciaran1981/micmac-docker`
 
 Then you could launch CLI binaries from docker with 
 
-`docker run -it giscan/micmac mm3d`
+`docker run -it cir10/micmac mm3d`
 
 Watch your container : 
 
@@ -39,12 +38,12 @@ Watch your container :
 
 Just remove it with docker : 
 
-`docker rmi -f giscan/micmac`
+`docker rmi -f cir10/micmac`
 
 
 **Mercurial repository of Micmac is updated, how could I update micmac ?**
 
-`docker run -it giscan/micmac update_micmac.sh`
+`docker run -it cir10/micmac update_micmac.sh`
 
 
 
