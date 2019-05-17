@@ -5,7 +5,7 @@ echo "**********         user : culture3d          **********"
 echo "**********       password : culture3d        **********"
 echo "*******************************************************"
 cd /
-hg clone https://culture3d:culture3d@geoportail.forge.ign.fr/hg/culture3d micmac
+git clone https://github.com/micmacIGN/micmac.git micmac
 echo "*******************************************************"
 echo "************       MICMAC DOWNLOADED       ************"
 echo "*******************************************************"
@@ -18,6 +18,7 @@ echo "*******************************************************"
 cd micmac
 mkdir build
 cd build
+
 cmake \
 	-DWITH_QT5=1 \
 	-DBUILD_POISSON=1 \
@@ -38,6 +39,6 @@ echo "*******************************************************"
 echo "********    MicMac should now be set up     **********"
 echo "********  Please report any inconvenience   **********"
 echo "******** http://forum-micmac.forumprod.com  **********"
-echo "******** Edit by Sylvain POULAIN for Docker **********"
-echo "********    <sylvain.poulain@giscan.com>    **********"
+echo "******************************************************"
+echo "******************************************************"
 echo "*******************************************************"

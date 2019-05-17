@@ -9,8 +9,7 @@ echo "**********  (This may take several minutes)  **********"
 echo "**********         user : culture3d          **********"
 echo "**********       password : culture3d        **********"
 echo "*******************************************************"
-hg pull https://culture3d:culture3d@geoportail.forge.ign.fr/hg/culture3d micmac
-hg update
+git pull https://github.com/micmacIGN/micmac.git micmac
 cd build/
 echo "*******************************************************"
 echo "********           BUILDING  MICMAC           *********"
