@@ -11,9 +11,9 @@ qt5-default doxygen opencl-headers
 
 #Download setup.sh and run it to install MicMac
 
-RUN chmod +x /setup.sh
-RUN chmod +x /update_micmac.sh
-RUN /setup.sh
+RUN chmod +x setup.sh
+RUN chmod +x update_micmac.sh
+RUN setup.sh
 
 
 
