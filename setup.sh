@@ -19,15 +19,9 @@ cd micmac
 mkdir build
 cd build
 
-cmake \
-	-DWITH_QT5=1 \
-	-DBUILD_POISSON=1 \
-	-DBUILD_RNX2RTKP=1 \
-	-DWITH_OPENCL=ON  \
-	-DWITH_OPEN_MP=ON \
-	-DWITH_ETALONPOLY=ON \
-	-DWITH_DOXYGEN=ON \
-	../
+
+cmake -DWITH_QT5=1 -DBUILD_POISSON=1 -DBUILD_RNX2RTKP=1 -DWITH_OPENCL=ON -DWITH_OPEN_MP=ON -DWITH_ETALONPOLY=ON -DWITH_DOXYGEN=ON  .. 
+
 NBRP=$(cat /proc/cpuinfo | grep processor | wc -l)
 make -j$NBRP
 make install
