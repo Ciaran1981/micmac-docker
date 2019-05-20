@@ -24,6 +24,6 @@ RUN cmake /micmac -DWITH_QT5=1 -DBUILD_POISSON=1 -DBUILD_RNX2RTKP=1 -DWITH_OPENC
 
 RUN cd /micmac
 RUN make 
-RUN make install -jK
+RUN make install -j4
 
 
