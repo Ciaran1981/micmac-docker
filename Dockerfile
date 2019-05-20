@@ -9,7 +9,7 @@ exiv2 libimage-exiftool-perl libgeo-proj4-perl \
 mesa-common-dev libgl1-mesa-dev libglapi-mesa libglu1-mesa \
 qt5-default doxygen opencl-headers git
 
-#Download setup.sh and run it to install MicMac
+
 
 #get micmac
 RUN git clone https://github.com/micmacIGN/micmac.git micmac
@@ -22,6 +22,7 @@ RUN cd ..
 #make micmac without gpu
 RUN cmake /micmac -DWITH_QT5=1 -DBUILD_POISSON=1 -DBUILD_RNX2RTKP=1 -DWITH_OPENCL=ON -DWITH_OPEN_MP=ON -DWITH_ETALONPOLY=ON -DWITH_DOXYGEN=ON 
 
+RUN cd /micmac
 RUN make 
 RUN make install -jK
 
