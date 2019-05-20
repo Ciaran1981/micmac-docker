@@ -17,10 +17,10 @@ RUN git clone https://github.com/micmacIGN/micmac.git micmac
 #folders etc
 RUN cd micmac
 RUN mkdir build
-RUN cd build
+RUN cd ..
 
 #make micmac without gpu
-RUN cmake -DWITH_QT5=1 -DBUILD_POISSON=1 -DBUILD_RNX2RTKP=1 -DWITH_OPENCL=ON -DWITH_OPEN_MP=ON -DWITH_ETALONPOLY=ON -DWITH_DOXYGEN=ON .
+RUN cmake /micmac -DWITH_QT5=1 -DBUILD_POISSON=1 -DBUILD_RNX2RTKP=1 -DWITH_OPENCL=ON -DWITH_OPEN_MP=ON -DWITH_ETALONPOLY=ON -DWITH_DOXYGEN=ON 
 
 RUN make 
 RUN make install -jK
