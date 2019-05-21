@@ -19,9 +19,9 @@ RUN cd micmac
 RUN mkdir build
 RUN cd ..
 
-#make micmac without gpu -DBUILD_POISSON=1 
+#make micmac without gpu unused options -DBUILD_POISSON=1  -DWITH_ETALONPOLY=ON
 
-RUN cmake /micmac -DWITH_QT5=1 -DBUILD_RNX2RTKP=1 -DWITH_OPENCL=ON -DWITH_OPEN_MP=ON -DWITH_ETALONPOLY=ON -DWITH_DOXYGEN=ON 
+RUN cmake /micmac -DWITH_QT5=1 -DBUILD_RNX2RTKP=1 -DWITH_OPENCL=ON -DWITH_OPEN_MP=ON -DWITH_DOXYGEN=ON 
 
 RUN cd /micmac
 RUN make 
