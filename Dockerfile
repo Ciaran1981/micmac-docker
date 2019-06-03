@@ -34,20 +34,19 @@ RUN cmake -DWITH_QT5=1 -DBUILD_RNX2RTKP=1 -DBUILD_POISSON=1 -DWITH_OPENCL=ON -DW
 RUN make 
 RUN make install 
 
-WORKDIR /
-
-git clone git@github.com:Ciaran1981/Sfm.git
+RUN git clone git@github.com:Ciaran1981/Sfm.git
 
 WORKDIR /Sfm
 
-chmod +x $PWD *.sh
-chmod +x $PWD *.py
+RUN chmod +x $PWD *.sh
+RUN chmod +x $PWD *.py
 
-chmod +x $PWD substages/*.sh
-chmod +x $PWD substages/*.py
+RUN chmod +x $PWD substages/*.sh
+RUN chmod +x $PWD substages/*.py
 
-WORKDIR micasense
-python setup.py install
+WORKDIR /Sfm/micasense
+
+RUN python setup.py install
 
 # Add Tini
 ENV TINI_VERSION v0.18.0
