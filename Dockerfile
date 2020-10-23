@@ -2,9 +2,6 @@ FROM ubuntu:latest
 
 MAINTAINER Ciaran Robb  cir10/docker-micmac
 
-#LABEL authors="Pete Bunting"
-#LABEL maintainer="petebunting@mac.com"
-
 #Install dependencies
 RUN apt-get update && apt-get install -y --install-recommends \
 x11proto-core-dev make cmake libx11-dev imagemagick gcc g++ \
@@ -29,24 +26,26 @@ WORKDIR /opt/micmac
 
 #make micmac without gpu 
 
-RUN cmake -DWITH_QT5=1 -DBUILD_RNX2RTKP=1 -DBUILD_POISSON=1 -DWITH_OPENCL=ON -DWITH_OPEN_MP=OFF -DWITH_ETALONPOLY=ON -DWITH_DOXYGEN=ON .
+RUN cmake -DWITH_QT5=1 -DBUILD_RNX2RTKP=1 -DBUILD_POISSON=1 -DWITH_OPEN_MP=ON -DWITH_ETALONPOLY=ON -DWITH_DOXYGEN=ON .
 
 RUN make 
 RUN make install 
 
-RUN git clone git@github.com:Ciaran1981/Sfm.git
+RUN wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda.sh && \
+    /bin/bash ~/miniconda.sh -b -p /opt/miniconda && \
+    rm ~/miniconda.sh && \
+    /opt/miniconda/bin/conda clean -tipsy && \
+    ln -s /opt/miniconda/etc/profile.d/conda.sh /etc/profile.d/conda.sh && \
+    echo ". /opt/miniconda/etc/profile.d/conda.sh" >> ~/.bashrc && \
+    echo "conda activate base" >> ~/.bashrc
 
-WORKDIR /Sfm
+RUN git clone git@github.com:Ciaran1981/pycmac.git
 
-RUN chmod +x $PWD *.sh
-RUN chmod +x $PWD *.py
+WORKDIR /pycmac
 
-RUN chmod +x $PWD substages/*.sh
-RUN chmod +x $PWD substages/*.py
+RUN conda env create -f pycmac_env.yml
 
-WORKDIR /Sfm/micasense
-
-RUN python setup.py install
+conda activate pycmac
 
 # Add Tini
 ENV TINI_VERSION v0.18.0
