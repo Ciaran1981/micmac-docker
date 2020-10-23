@@ -7,7 +7,7 @@ RUN apt-get update && apt-get install -y --install-recommends \
 x11proto-core-dev make cmake libx11-dev imagemagick gcc g++ \
 exiv2 libimage-exiftool-perl libgeo-proj4-perl \ 
 mesa-common-dev libgl1-mesa-dev libglapi-mesa libglu1-mesa \
-qt5-default doxygen opencl-headers git graphviz && \
+qt5-default doxygen opencl-headers git graphviz wget && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
