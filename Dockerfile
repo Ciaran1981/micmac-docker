@@ -41,7 +41,7 @@ RUN wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86
 
 RUN git clone https://github.com/Ciaran1981/pycmac.git
 
-WORKDIR /pycmac
+WORKDIR opt/pycmac
 
 RUN conda env create -f pycmac_env.yml
 
