@@ -49,6 +49,8 @@ WORKDIR /opt/pycmac
 
 RUN conda env create -f pycmac_env.yml
 
+RUN conda init bash
+
 RUN conda activate pycmac
 
 # Add Tini
