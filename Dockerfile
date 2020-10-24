@@ -39,9 +39,11 @@ RUN wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86
     echo ". /opt/miniconda/etc/profile.d/conda.sh" >> ~/.bashrc && \
     echo "conda activate base" >> ~/.bashrc
 
+ENV PATH /opt/miniconda/bin:$PATH
+
 RUN git clone https://github.com/Ciaran1981/pycmac.git
 
-WORKDIR opt/pycmac
+WORKDIR /opt/pycmac
 
 RUN conda env create -f pycmac_env.yml
 
