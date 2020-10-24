@@ -55,7 +55,7 @@ RUN rm -rf /opt/pycmac
 
 RUN conda init bash
 
-WORKDIR $HOME
+WORKDIR /
 
 RUN mkdir home
 
