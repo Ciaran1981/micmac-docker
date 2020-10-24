@@ -39,7 +39,7 @@ RUN wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86
     echo ". /opt/miniconda/etc/profile.d/conda.sh" >> ~/.bashrc && \
     echo "conda activate base" >> ~/.bashrc
 
-RUN git clone git@github.com:Ciaran1981/pycmac.git
+RUN git clone https://github.com/Ciaran1981/pycmac.git
 
 WORKDIR /pycmac
 
