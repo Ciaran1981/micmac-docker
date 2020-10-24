@@ -43,6 +43,8 @@ ENV PATH /opt/miniconda/bin:$PATH
 
 ENV PATH /opt/micmac/bin:$PATH
 
+RUN conda init bash
+
 WORKDIR /opt
 
 RUN git clone https://github.com/Ciaran1981/pycmac.git
@@ -57,7 +59,7 @@ RUN rm -rf pycmac
 
 RUN mkdir home
 
-RUN conda init bash
+
 
 
 
