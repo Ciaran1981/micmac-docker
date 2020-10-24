@@ -28,7 +28,7 @@ WORKDIR /opt/micmac
 
 RUN cmake -DWITH_QT5=1 -DBUILD_RNX2RTKP=1 -DBUILD_POISSON=1 -DWITH_ETALONPOLY=ON -DWITH_DOXYGEN=ON .
 
-RUN make 
+RUN make -j$(nproc)
 RUN make install 
 
 RUN wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda.sh && \
