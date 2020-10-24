@@ -51,13 +51,15 @@ WORKDIR /opt/pycmac
 
 RUN conda env create -f pycmac_env.yml
 
-RUN rm -rf /opt/pycmac
+WORKDIR /opt
+
+RUN rm -rf pycmac
+
+RUN mkdir home
 
 RUN conda init bash
 
-WORKDIR /
 
-RUN mkdir home
 
 
 # Add Tini
