@@ -51,7 +51,7 @@ RUN conda env create -f pycmac_env.yml
 
 RUN conda init bash
 
-RUN conda activate pycmac
+#RUN conda activate pycmac
 
 # Add Tini
 ENV TINI_VERSION v0.18.0
