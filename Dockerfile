@@ -53,6 +53,9 @@ RUN conda env create -f pycmac_env.yml
 
 RUN conda init bash
 
+RUN cd
+
+RUN mkdir home
 
 
 # Add Tini
