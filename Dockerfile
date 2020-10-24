@@ -51,9 +51,11 @@ WORKDIR /opt/pycmac
 
 RUN conda env create -f pycmac_env.yml
 
+RUN rm -rf /opt/pycmac
+
 RUN conda init bash
 
-RUN cd
+WORKDIR $HOME
 
 RUN mkdir home
 
