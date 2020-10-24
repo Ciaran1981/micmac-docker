@@ -45,7 +45,9 @@ RUN git clone https://github.com/Ciaran1981/pycmac.git
 
 WORKDIR /opt/pycmac
 
-RUN conda env create -f /opt/pycmac/pycmac_env.yml
+ls /opt/pycmac
+
+RUN conda env create -f pycmac_env.yml
 
 RUN conda activate pycmac
 
