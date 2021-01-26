@@ -1,7 +1,6 @@
 FROM ubuntu:latest
 
-RUN apt-get update && apt-get install -y build-essential make cmake \
-git proj-bin exiv2 exiftool imagemagick xorg openbox qt5-default meshlab vim
+
 
 MAINTAINER Ciaran Robb  cir10/docker-micmac
 
@@ -15,6 +14,11 @@ MAINTAINER Ciaran Robb  cir10/docker-micmac
 #   apt-get clean && \
 #    rm -rf /var/lib/apt/lists/*
 
+
+RUN DEBIAN_FRONTEND="noninteractive" apt-get -y install tzdata
+
+RUN apt-get update && apt-get install -y build-essential make cmake \
+git proj-bin exiv2 exiftool imagemagick xorg openbox qt5-default meshlab vim
 
 #RUN mkdir /opt
 WORKDIR /opt
